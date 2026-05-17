@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 1f;
+    [SerializeField] private Camera mainCamera;
 
     private PlayerControls playerControls;
     private Vector2 movement;
@@ -16,8 +18,9 @@ public class PlayerController : MonoBehaviour
     {
         playerControls = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();
-        myAnimator = GetComponent<Animator>();  
+        myAnimator = GetComponent<Animator>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
+        if (mainCamera == null) mainCamera = Camera.main;
     }
     private void OnEnable()
     {
@@ -48,10 +51,19 @@ public class PlayerController : MonoBehaviour
     }
     private void AdjustPlayerFacingDirection()
     {
-        if (movement.x < 0f)
+        if (mainCamera == null) return;
+
+        Vector2 mousePos =
+            Mouse.current.position.ReadValue();
+
+        Vector3 playerScreenPoint =
+            mainCamera.WorldToScreenPoint(transform.position);
+
+        if (mousePos.x < playerScreenPoint.x)
         {
             mySpriteRenderer.flipX = true;
-        }else if (movement.x > 0f)
+        }
+        else
         {
             mySpriteRenderer.flipX = false;
         }
