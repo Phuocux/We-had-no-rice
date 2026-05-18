@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 380763432822548513}
   - component: {fileID: 6482152526344911117}
   - component: {fileID: 4092358565425235190}
+  - component: {fileID: 5274668441454397518}
+  - component: {fileID: 2741348190150321384}
+  - component: {fileID: 6704946662312066095}
   - component: {fileID: 7829790393285620735}
   m_Layer: 0
   m_Name: BlueSlime
@@ -185,6 +188,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPathfinding
   moveSpeed: 2
+--- !u!114 &5274668441454397518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4449469053207267977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db5c16dd101233f4b80b680a0d931e12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  startingHealth: 3
+  deathVFXPrefab: {fileID: 7583050520902642220, guid: f9368e8c6eb8eff43aab9b41f6cecf92, type: 3}
+--- !u!114 &2741348190150321384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4449469053207267977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bc92a17aefdcc34cb813a74021942c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Knockback
+  knockBackTime: 0.2
+--- !u!114 &6704946662312066095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4449469053207267977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 456a2c6bcde76e04f8378a1b35542b30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Flash
+  whiteFlashMat: {fileID: 2100000, guid: 866bf30c6dfbc5d41aca5800f47b1f5c, type: 2}
+  restoreDefaultMatTime: 0.2
 --- !u!95 &7829790393285620735
 Animator:
   serializedVersion: 7
