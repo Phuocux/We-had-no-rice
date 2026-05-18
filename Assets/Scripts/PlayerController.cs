@@ -15,7 +15,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Animator myAnimator;
     private SpriteRenderer mySpriteRenderer;
-    private bool facingLeft = false;
+
+    public bool FacingLeft { get; private set; }
     private bool isDashing = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -73,10 +74,12 @@ public class PlayerController : MonoBehaviour
         if (mousePos.x < playerScreenPoint.x)
         {
             mySpriteRenderer.flipX = true;
+            FacingLeft = true;
         }
         else
         {
             mySpriteRenderer.flipX = false;
+            FacingLeft = false;
         }
     }
 
