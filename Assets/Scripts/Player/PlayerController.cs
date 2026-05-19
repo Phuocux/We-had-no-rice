@@ -1,11 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : Singleton<PlayerController>
 {
-    
+    public bool FacingLeft { get; private set; }
 
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private Camera mainCamera;
@@ -18,27 +17,39 @@ public class PlayerController : Singleton<PlayerController>
     private Animator myAnimator;
     private SpriteRenderer mySpriteRenderer;
 
-    public bool FacingLeft { get; private set; }
+    private float startingMoveSpeed;
+
     private bool isDashing = false;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Awake()
     {
         base.Awake();
+
         playerControls = new PlayerControls();
+
         rb = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
-        if (mainCamera == null) mainCamera = Camera.main;
+
+        startingMoveSpeed = moveSpeed;
     }
 
     private void Start()
     {
         playerControls.Combat.Dash.performed += _ => Dash();
     }
+
     private void OnEnable()
     {
         playerControls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        if (playerControls != null)
+        {
+            playerControls.Disable();
+        }
     }
 
     private void Update()
@@ -48,31 +59,39 @@ public class PlayerController : Singleton<PlayerController>
 
     private void FixedUpdate()
     {
+        UpdateCameraReference();
+
         AdjustPlayerFacingDirection();
         Move();
+    }
+
+    private void UpdateCameraReference()
+    {
+        if (mainCamera == null)
+        {
+            mainCamera = Camera.main;
+        }
     }
 
     private void PlayerInput()
     {
         movement = playerControls.Movement.Move.ReadValue<Vector2>();
+
         myAnimator.SetFloat("moveX", movement.x);
         myAnimator.SetFloat("moveY", movement.y);
     }
 
     private void Move()
     {
-        rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
+        rb.MovePosition(
+            rb.position + movement * (moveSpeed * Time.fixedDeltaTime)
+        );
     }
 
     private void AdjustPlayerFacingDirection()
     {
         if (mainCamera == null)
-        {
-            mainCamera = Camera.main;
-
-            if (mainCamera == null)
-                return;
-        }
+            return;
 
         Vector2 mousePos =
             Mouse.current.position.ReadValue();
@@ -92,26 +111,39 @@ public class PlayerController : Singleton<PlayerController>
         }
     }
 
-    private void Dash() {         
-        if (!isDashing)
-        {   
-            isDashing = true;
-            moveSpeed *= dashSpeed;
+    private void Dash()
+    {
+        if (isDashing)
+            return;
+
+        isDashing = true;
+
+        moveSpeed *= dashSpeed;
+
+        if (myTrailRenderer != null)
+        {
             myTrailRenderer.emitting = true;
-            StartCoroutine(EndDashRoutine());
         }
-       
+
+        StartCoroutine(EndDashRoutine());
     }
 
     private IEnumerator EndDashRoutine()
-    {   
+    {
         float dashTime = .2f;
         float dashCD = .25f;
+
         yield return new WaitForSeconds(dashTime);
-        moveSpeed /= dashSpeed;
-        myTrailRenderer.emitting = false;
+
+        moveSpeed = startingMoveSpeed;
+
+        if (myTrailRenderer != null)
+        {
+            myTrailRenderer.emitting = false;
+        }
+
         yield return new WaitForSeconds(dashCD);
+
         isDashing = false;
     }
-
 }
