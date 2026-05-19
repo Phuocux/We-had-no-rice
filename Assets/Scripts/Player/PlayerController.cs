@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Singleton<PlayerController>
 {
-    public static PlayerController Instance;
+    
 
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private Camera mainCamera;
@@ -22,9 +22,9 @@ public class PlayerController : MonoBehaviour
     private bool isDashing = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private void Awake()
+    protected override void Awake()
     {
-        Instance = this;
+        base.Awake();
         playerControls = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
@@ -66,7 +66,13 @@ public class PlayerController : MonoBehaviour
 
     private void AdjustPlayerFacingDirection()
     {
-        if (mainCamera == null) return;
+        if (mainCamera == null)
+        {
+            mainCamera = Camera.main;
+
+            if (mainCamera == null)
+                return;
+        }
 
         Vector2 mousePos =
             Mouse.current.position.ReadValue();
