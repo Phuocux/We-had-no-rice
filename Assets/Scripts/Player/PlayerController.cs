@@ -10,6 +10,7 @@ public class PlayerController : Singleton<PlayerController>
     [SerializeField] private Camera mainCamera;
     [SerializeField] private float dashSpeed = 4f;
     [SerializeField] private TrailRenderer myTrailRenderer;
+    [SerializeField] private Transform weaponCollider;
 
     private PlayerControls playerControls;
     private Vector2 movement;
@@ -67,6 +68,10 @@ public class PlayerController : Singleton<PlayerController>
         Move();
     }
 
+    public Transform GetWeaponCollider()
+    {
+        return weaponCollider;
+    }
     private void UpdateCameraReference()
     {
         if (mainCamera == null)
