@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bow : MonoBehaviour, IWeapon
 {
+    [SerializeField] private WeaponInfo WeaponInfo;
     public void Attack()
     {
         Debug.Log("Bow Attack");
