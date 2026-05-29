@@ -126,7 +126,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -158,7 +158,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!96 &6201362201873887259
 TrailRenderer:
@@ -304,4 +304,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21a54e1c831e2544188a7e2fbef07bd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
-  moveSpeed: 22
+  moveSpeed: 20
+  particleOnHitPrefabVFX: {fileID: 7583050520902642220, guid: fd326fb98f9d41247ab273d1b3b846f1, type: 3}
