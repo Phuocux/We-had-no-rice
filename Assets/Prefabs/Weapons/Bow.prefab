@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99953701a261b7743b0ab7339a7c926e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bow
+  weaponInfo: {fileID: 11400000, guid: 3b8826df067bfcc44a65e7e33490ef54, type: 2}
 --- !u!212 &1918934176282478990
 SpriteRenderer:
   serializedVersion: 2
