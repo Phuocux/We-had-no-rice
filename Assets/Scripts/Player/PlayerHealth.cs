@@ -37,7 +37,7 @@ public class PlayerHealth : MonoBehaviour
 
         knockback.GetKnockedBack(hitTransform, knockBackThrustAmount);
         StartCoroutine(flash.FlashRoutine());
-         ScreenShakeManager.Instance.ShakeScreen();
+        ScreenShakeManager.Instance.ShakeScreen();
         canTakeDamage = false;
         currentHealth -= damageAmount;
         StartCoroutine(DamageRecoveryRoutine());

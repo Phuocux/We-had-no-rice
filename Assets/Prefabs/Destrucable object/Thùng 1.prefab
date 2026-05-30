@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6117860251432638396}
   - component: {fileID: 8358633329136211720}
   - component: {fileID: 8856214632161546910}
+  - component: {fileID: 415338061182783062}
   m_Layer: 0
   m_Name: "Th\xF9ng 1"
   m_TagString: Untagged
@@ -143,3 +144,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Destructible
   destroyVFX: {fileID: 1620997921881605332, guid: 0d0494046c20c1144a979522d93b2b27, type: 3}
+--- !u!114 &415338061182783062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8788718819801047196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f40177740de73ff47803643be750694a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PickUpSpawner
+  goinCoinPrefab: {fileID: 3880765973484951915, guid: 04b4b429074c82b45844d4e1971e4821, type: 3}
