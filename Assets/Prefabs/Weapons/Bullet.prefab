@@ -171,5 +171,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
   moveSpeed: 22
   particleOnHitPrefabVFX: {fileID: 7583050520902642220, guid: fd326fb98f9d41247ab273d1b3b846f1, type: 3}
-  isEnemyProjectile: 0
+  isEnemyProjectile: 1
   projectileRange: 10

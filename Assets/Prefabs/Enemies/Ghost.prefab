@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 8378211311977588}
   - component: {fileID: 8450375778322766511}
   - component: {fileID: 8904190081865751441}
+  - component: {fileID: 3913580018641168281}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Untagged
@@ -267,6 +268,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6907030075eff294da5e28cb61f8c7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
+  roamChangeDirFloat: 2
+  attackRange: 5
+  enemyType: {fileID: 3913580018641168281}
+  attackCooldown: 2
+  stopMovingWhileAttacking: 1
 --- !u!114 &8790403232632309138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,3 +339,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34e8b0fa74285134396e221af40ee1a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RandomIdleAnimation
+--- !u!114 &3913580018641168281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3314383271912532400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 144e4bf387924ed4da132d6d5f61bfce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Shooter
+  bulletPrefab: {fileID: 2112046311813578123, guid: 4fdc0bb313e628a40b79b1b4cf01c0af, type: 3}
