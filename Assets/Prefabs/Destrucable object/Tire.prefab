@@ -156,4 +156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f40177740de73ff47803643be750694a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickUpSpawner
-  goinCoinPrefab: {fileID: 3880765973484951915, guid: 04b4b429074c82b45844d4e1971e4821, type: 3}
+  goldCoin: {fileID: 3880765973484951915, guid: 04b4b429074c82b45844d4e1971e4821, type: 3}
+  staminaGlobe: {fileID: 3880765973484951915, guid: 47d39218f13f8f248a37d62215b0e10c, type: 3}
+  healthGlobe: {fileID: 3880765973484951915, guid: 046e599e10e4b494188c7b8ecf0b636a, type: 3}
