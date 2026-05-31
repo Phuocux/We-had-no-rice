@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : Singleton<PlayerHealth>
 {
+    public bool isDead { get; private set; }
     [SerializeField] private int maxHealth = 3;
     [SerializeField] private float knockBackThrustAmount = 10f;
     [SerializeField] private float damageRecoveryTime = 1f;
@@ -14,11 +16,15 @@ public class PlayerHealth : Singleton<PlayerHealth>
     private bool canTakeDamage = true;
     private Knockback knockback;
     private Flash flash;
+
     const string HEALTH_SLIDER_NAME = "Health Slider";
+    const string GAME_OVER_SCENE_NAME = "GameOverScene";
+
 
 
     protected override void Awake()
     {
+        isDead = false;
         base.Awake();
         flash = GetComponent<Flash>();
         knockback = GetComponent<Knockback>();
@@ -68,7 +74,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
 
     private void CheckIfPlayerDeath()
     {
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !isDead )
         {
             currentHealth = 0;
             Debug.Log("Player Death");
