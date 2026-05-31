@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5397f6b39bfe654193d8b1ec5592807, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pickup
+  pickUpType: 2
   pickUpDistance: 4
   accelartionRate: 0.4
   moveSpeed: 1

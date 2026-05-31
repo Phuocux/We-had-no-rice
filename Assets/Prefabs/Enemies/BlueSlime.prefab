@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2741348190150321384}
   - component: {fileID: 6704946662312066095}
   - component: {fileID: 7829790393285620735}
+  - component: {fileID: -107872376918366290}
   m_Layer: 0
   m_Name: BlueSlime
   m_TagString: Untagged
@@ -175,6 +176,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6907030075eff294da5e28cb61f8c7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
+  roamChangeDirFloat: 2
+  attackRange: 5
+  enemyType: {fileID: 0}
+  attackCooldown: 2
+  stopMovingWhileAttacking: 0
 --- !u!114 &4092358565425235190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,3 +257,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-107872376918366290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4449469053207267977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f40177740de73ff47803643be750694a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PickUpSpawner
+  goldCoin: {fileID: 3880765973484951915, guid: 04b4b429074c82b45844d4e1971e4821, type: 3}
+  staminaGlobe: {fileID: 3880765973484951915, guid: 47d39218f13f8f248a37d62215b0e10c, type: 3}
+  healthGlobe: {fileID: 3880765973484951915, guid: 046e599e10e4b494188c7b8ecf0b636a, type: 3}

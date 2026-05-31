@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8784050597253422124}
   - component: {fileID: 5697667662809479246}
   - component: {fileID: 659183161274173886}
+  - component: {fileID: 4680859696723540916}
   - component: {fileID: 99514513503772560}
   - component: {fileID: 7303563401782625178}
   m_Layer: 0
@@ -129,6 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5397f6b39bfe654193d8b1ec5592807, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pickup
+  pickUpType: 0
   pickUpDistance: 4
   accelartionRate: 0.4
   moveSpeed: 1
@@ -158,6 +160,18 @@ MonoBehaviour:
     m_RotationOrder: 4
   heightY: 1.5
   popDuration: 0.5
+--- !u!114 &4680859696723540916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3880765973484951915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 966e8fe6d5a25514ba9364ef11ddaeb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TestTrigger
 --- !u!70 &99514513503772560
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

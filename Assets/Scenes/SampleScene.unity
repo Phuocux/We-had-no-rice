@@ -10154,7 +10154,7 @@ GameObject:
   - component: {fileID: 1564019854}
   - component: {fileID: 1564019855}
   m_Layer: 5
-  m_Name: Heart Slider
+  m_Name: Health Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
