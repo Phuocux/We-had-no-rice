@@ -23,8 +23,10 @@ public class Pickup : MonoBehaviour
     private Vector3 moveDir;
     private Rigidbody2D rb;
     private bool isPoping = true;
+    private AudioManager audioManager;
 
     private void Awake() {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -92,8 +94,11 @@ public class Pickup : MonoBehaviour
         switch (pickUpType)
         {
             case PickUpType.GoldCoin:
-                if (EconomyManager.Instance != null)
+                if (EconomyManager.Instance != null) {
+                    audioManager.PlaySFX(audioManager.coinClip);
                     EconomyManager.Instance.UpdateCurrentGold();
+                }
+                    
                 Debug.Log("GoldCoin");
                 break;
             case PickUpType.HealthGlobe:
