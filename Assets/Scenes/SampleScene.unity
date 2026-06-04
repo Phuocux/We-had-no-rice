@@ -1215,8 +1215,8 @@ Transform:
   m_GameObject: {fileID: 314049437}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.04, y: 0.054, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 555819264}
@@ -4900,6 +4900,14 @@ PrefabInstance:
     - target: {fileID: 3314383271912532400, guid: 232cd7b637ae20743a57570e1b4010ce, type: 3}
       propertyPath: m_Name
       value: Ghost
+      objectReference: {fileID: 0}
+    - target: {fileID: 3913580018641168281, guid: 232cd7b637ae20743a57570e1b4010ce, type: 3}
+      propertyPath: angleSpread
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3913580018641168281, guid: 232cd7b637ae20743a57570e1b4010ce, type: 3}
+      propertyPath: projectilesPerBurst
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10521,7 +10529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.0141509175, g: 0.17845894, b: 1, a: 1}
+  m_Color: {r: 0.9528302, g: 0.9528302, b: 0.9528302, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -11502,7 +11510,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f83c13743648314aa9ab9cc57f95ac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageSource
-  damageAmount: 1
 --- !u!1 &2127407641
 GameObject:
   m_ObjectHideFlags: 0
