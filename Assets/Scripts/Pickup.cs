@@ -22,13 +22,11 @@ public class Pickup : MonoBehaviour
 
     private Vector3 moveDir;
     private Rigidbody2D rb;
-    private bool isPoping = true;
-    private AudioManager audioManager;
 
     private void Awake() {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         rb = GetComponent<Rigidbody2D>();
     }
+
 
     private void Start()
     {
@@ -36,8 +34,6 @@ public class Pickup : MonoBehaviour
     }
 
     private void Update() {
-        if (isPoping) return;
-
         Vector3 playerPos = PlayerController.Instance.transform.position;
 
         if (Vector3.Distance(transform.position, playerPos) < pickUpDistance) {
@@ -50,19 +46,14 @@ public class Pickup : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        if (isPoping) return;
-        rb.linearVelocity = moveDir * moveSpeed;
+        rb.linearVelocity = moveDir * moveSpeed * Time.deltaTime;
     }
 
-    private bool collected;
-
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (collected) return;
-        if (!other.gameObject.GetComponent<PlayerController>()) return;
-
-        collected = true;
-        DetectPickupType();
-        Destroy(gameObject);
+    private void OnTriggerStay2D(Collider2D other) {
+        if (other.gameObject.GetComponent<PlayerController>()) {
+            DetectPickupType();
+            Destroy(gameObject);
+        }
     }
 
     private IEnumerator AnimCurveSpawnRoutine()
@@ -85,8 +76,6 @@ public class Pickup : MonoBehaviour
             transform.position = Vector2.Lerp(startPoint, endPoint, linearT) + new Vector2(0f, height);
             yield return null;
         }
-
-        isPoping = false;
     }
 
     private void DetectPickupType()
@@ -94,19 +83,15 @@ public class Pickup : MonoBehaviour
         switch (pickUpType)
         {
             case PickUpType.GoldCoin:
-                if (EconomyManager.Instance != null) {
-                    audioManager.PlaySFX(audioManager.coinClip);
-                    EconomyManager.Instance.UpdateCurrentGold();
-                }
-                    
+                EconomyManager.Instance.UpdateCurrentGold();
                 Debug.Log("GoldCoin");
                 break;
             case PickUpType.HealthGlobe:
-                if (PlayerHealth.Instance != null)
-                    PlayerHealth.Instance.HealPlayer();
+                PlayerHealth.Instance.HealPlayer();
                 Debug.Log("HealthGlobe");
                 break;
             case PickUpType.StaminaGlobe:
+                // do stamina globe stuff
                 Debug.Log("StaminaGlobe");
                 break;
         }
