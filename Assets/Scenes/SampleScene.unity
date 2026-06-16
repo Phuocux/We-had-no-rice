@@ -12177,7 +12177,7 @@ PrefabInstance:
     - target: {fileID: 542088299386176981, guid: 5593716171fef0345954425fe421e1b1, type: 3}
       propertyPath: bow_AttackSFX
       value: 
-      objectReference: {fileID: 8300000, guid: 362e9fe12f5b9c6419b44948358b9f62, type: 3}
+      objectReference: {fileID: 8300000, guid: e85da53f5d4692946848f3813b48de6d, type: 3}
     - target: {fileID: 3294898875681798398, guid: 5593716171fef0345954425fe421e1b1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.02471
