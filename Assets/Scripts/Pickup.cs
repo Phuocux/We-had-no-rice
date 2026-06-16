@@ -104,9 +104,11 @@ public class Pickup : MonoBehaviour
             case PickUpType.HealthGlobe:
                 if (PlayerHealth.Instance != null)
                     PlayerHealth.Instance.HealPlayer();
+                audioManager.PlaySFX(audioManager.healthClip);
                 Debug.Log("HealthGlobe");
                 break;
             case PickUpType.StaminaGlobe:
+                audioManager.PlaySFX(audioManager.staminaClip);
                 Debug.Log("StaminaGlobe");
                 break;
         }
