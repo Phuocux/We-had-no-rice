@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a92abf6a8947dbd48a495e6b2a463cb4
+guid: 8b4c06532d65ed246b82d2109f07f096
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4161113688264328438
-    second: Car_4_Green_0
+      213: 156874933093599617
+    second: GrassDa_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -54,7 +54,7 @@ TextureImporter:
   spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
-  alphaUsage: 0
+  alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Car_4_Green_0
+      name: GrassDa_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 38
-        height: 19
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a0b3df4a521c046c0800000000000000
-      internalID: -4161113688264328438
+      spriteID: 1890535abe45d2200800000000000000
+      internalID: 156874933093599617
       vertices: []
       indices: 
       edges: []
@@ -133,9 +133,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Car_4_Green_0: -4161113688264328438
+      GrassDa_0: 156874933093599617
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
