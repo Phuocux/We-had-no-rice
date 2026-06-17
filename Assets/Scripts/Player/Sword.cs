@@ -11,6 +11,7 @@ public class Sword : MonoBehaviour, IWeapon
 
     private Transform weaponCollider;
     private Animator myAnimator;
+    private AudioManager audioManager;
 
 
     private GameObject slashAnim;
@@ -20,6 +21,7 @@ public class Sword : MonoBehaviour, IWeapon
 
     private void Awake()
     {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         myAnimator = GetComponent<Animator>();
 
         //attackStarted = _ => StartAttacking();
@@ -49,8 +51,9 @@ public class Sword : MonoBehaviour, IWeapon
 
 
             myAnimator.SetTrigger("Attack");
+            audioManager.PlaySFX(audioManager.sword_AttackSFX);
 
-            if (weaponCollider != null)
+        if (weaponCollider != null)
                 weaponCollider.gameObject.SetActive(true);
 
             slashAnim = Instantiate(
