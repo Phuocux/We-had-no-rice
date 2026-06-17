@@ -17,16 +17,19 @@ public class PlayerHealth : Singleton<PlayerHealth>
     private bool canTakeDamage = true;
     private Knockback knockback;
     private Flash flash;
+    private AudioManager audioManager;
 
     const string HEALTH_SLIDER_NAME = "Health Slider";
     const string GAME_OVER_SCENE_NAME = "GameOverScene";
     const string TOWN_TEXT = "Scene1";
 
 
+
     protected override void Awake()
     {
         isDead = false;
         base.Awake();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         flash = GetComponent<Flash>();
         knockback = GetComponent<Knockback>();
     }
@@ -64,6 +67,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
         if (!canTakeDamage) { return; }
 
         knockback.GetKnockedBack(hitTransform, knockBackThrustAmount);
+        audioManager.PlaySFX(audioManager.playerHurtSFX);
         StartCoroutine(flash.FlashRoutine());
         ScreenShakeManager.Instance.ShakeScreen();
         canTakeDamage = false;

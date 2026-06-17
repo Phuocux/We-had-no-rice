@@ -12,6 +12,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip sword_AttackSFX;
     public AudioClip bow_AttackSFX;
     public AudioClip staff_AttackSFX;
+    public AudioClip playerHurtSFX;
     void Start()
     {
         musicAudioSource.clip = musicClip;
