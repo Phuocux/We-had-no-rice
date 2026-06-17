@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class PlayerHealth : Singleton<PlayerHealth>
 {
@@ -19,7 +20,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
 
     const string HEALTH_SLIDER_NAME = "Health Slider";
     const string GAME_OVER_SCENE_NAME = "GameOverScene";
-
+    const string TOWN_TEXT = "Scene1";
 
 
     protected override void Awake()
@@ -76,9 +77,20 @@ public class PlayerHealth : Singleton<PlayerHealth>
     {
         if (currentHealth <= 0 && !isDead )
         {
+            isDead = true;
+            Destroy(ActiveWeapon.Instance.gameObject);
             currentHealth = 0;
             Debug.Log("Player Death");
+            //GetComponent<Animator>().SetTrigger(DEATH_HASH);
+            //StartCoroutine(DeathLoadSceneRoutine());
         }
+    }
+
+    private IEnumerator DeathLoadSceneRoutine()
+    {
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
+        SceneManager.LoadScene(TOWN_TEXT);
     }
 
     private IEnumerator DamageRecoveryRoutine() {
