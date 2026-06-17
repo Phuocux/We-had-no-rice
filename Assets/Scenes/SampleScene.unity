@@ -11847,6 +11847,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bandit
       objectReference: {fileID: 0}
+    - target: {fileID: 1474915722375591880, guid: cfd291859480b1e4f9ef0ccfa659a4f1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6088208255124743699, guid: cfd291859480b1e4f9ef0ccfa659a4f1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.87
@@ -12267,6 +12271,18 @@ PrefabInstance:
       propertyPath: bow_AttackSFX
       value: 
       objectReference: {fileID: 8300000, guid: e85da53f5d4692946848f3813b48de6d, type: 3}
+    - target: {fileID: 542088299386176981, guid: 5593716171fef0345954425fe421e1b1, type: 3}
+      propertyPath: playerHurtSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: dc6614beca09347ec9b258f12d154bdd, type: 3}
+    - target: {fileID: 542088299386176981, guid: 5593716171fef0345954425fe421e1b1, type: 3}
+      propertyPath: staff_AttackSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
+    - target: {fileID: 542088299386176981, guid: 5593716171fef0345954425fe421e1b1, type: 3}
+      propertyPath: sword_AttackSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 52320e590bf774734a288886eba557ba, type: 3}
     - target: {fileID: 3294898875681798398, guid: 5593716171fef0345954425fe421e1b1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.02471
