@@ -8,11 +8,13 @@ public class EnemyHealth : MonoBehaviour
     private int currentHealth;
     private Knockback knockback;
     private Flash flash;
+    private EnemyAudio enemyAudio;
 
     private void Awake()
-    {   
+    {
         flash = GetComponent<Flash>();
         knockback = GetComponent<Knockback>();
+        enemyAudio = GetComponent<EnemyAudio>();
     }
 
     private void Start()
@@ -23,7 +25,14 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        knockback.GetKnockedBack(PlayerController.Instance.transform, 15f);
+
+        enemyAudio?.PlayHurt();
+
+        knockback.GetKnockedBack(
+            PlayerController.Instance.transform,
+            15f
+        );
+
         StartCoroutine(flash.FlashRoutine());
     }
 
@@ -31,9 +40,22 @@ public class EnemyHealth : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            Instantiate(deathVFXPrefab, transform.position, Quaternion.identity);
+            enemyAudio?.PlayDeath();
+
+            Instantiate(
+                deathVFXPrefab,
+                transform.position,
+                Quaternion.identity
+            );
+
             GetComponent<PickUpSpawner>().DropItems();
+
             Destroy(gameObject);
         }
+    }
+
+    public int GetCurrentHealth()
+    {
+        return currentHealth;
     }
 }

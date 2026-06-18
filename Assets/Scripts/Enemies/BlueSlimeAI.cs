@@ -10,13 +10,20 @@ public class BlueSlimeAI : MonoBehaviour
     private Rigidbody2D rb;
     private Transform player;
     private Animator animator;
+    private SpriteRenderer spriteRenderer;
 
     private bool canAttack = true;
+
+    private EnemyAudio enemyAudio;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        enemyAudio = GetComponent<EnemyAudio>();
 
         if (PlayerController.Instance != null)
             player = PlayerController.Instance.transform;
@@ -29,14 +36,20 @@ public class BlueSlimeAI : MonoBehaviour
         float distance =
             Vector2.Distance(transform.position, player.position);
 
+        Vector2 direction =
+            (player.position - transform.position).normalized;
+
+        // Flip
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.flipX = direction.x < 0;
+        }
+
         if (distance > detectRange)
             return;
 
         if (distance > attackRange)
         {
-            Vector2 direction =
-                (player.position - transform.position).normalized;
-
             rb.MovePosition(
                 rb.position +
                 direction * moveSpeed * Time.fixedDeltaTime
@@ -54,7 +67,6 @@ public class BlueSlimeAI : MonoBehaviour
 
         canAttack = false;
 
-        // Lao tới một đoạn ngắn
         Vector2 direction =
             (player.position - transform.position).normalized;
 
@@ -62,6 +74,7 @@ public class BlueSlimeAI : MonoBehaviour
             rb.position + direction * 2f
         );
 
+        enemyAudio?.PlayAttack();
         animator.SetTrigger("Attack");
 
         Invoke(nameof(ResetAttack), attackCooldown);
