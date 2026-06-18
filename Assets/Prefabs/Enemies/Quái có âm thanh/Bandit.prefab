@@ -56,9 +56,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8febd9b1b1c1bf64897bf56dd9fc6825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAudio
-  attackSFX: {fileID: 0}
+  attackSFX: {fileID: 8300000, guid: 46b5149f3cf07974eb9ccb248a1e9f74, type: 3}
   hurtSFX: {fileID: 0}
-  deathSFX: {fileID: 0}
+  deathSFX: {fileID: 8300000, guid: 889498c9fcb10f141b1c983aea28b58c, type: 3}
 --- !u!212 &1109125028952851565
 SpriteRenderer:
   serializedVersion: 2
@@ -198,6 +198,9 @@ MonoBehaviour:
   detectRange: 11
   attackRange: 1.5
   attackCooldown: 1
+  wanderRadius: 3
+  wanderWaitTime: 2
+  wanderSpeedMultiplier: 0.5
 --- !u!114 &5395640899465966576
 MonoBehaviour:
   m_ObjectHideFlags: 0
