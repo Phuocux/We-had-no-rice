@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : Singleton<AudioManager>
 {
     public AudioSource musicAudioSource;
     public AudioSource sfxAudioSource;
@@ -13,6 +13,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip bow_AttackSFX;
     public AudioClip staff_AttackSFX;
     public AudioClip playerHurtSFX;
+    public AudioClip gun_AttackSFX;
+    public AudioClip playerDeathSFX;
     void Start()
     {
         musicAudioSource.clip = musicClip;
@@ -21,7 +23,12 @@ public class AudioManager : MonoBehaviour
     }
     public void PlaySFX(AudioClip sfxclip)
     {
-        sfxAudioSource.clip = sfxclip;
+        if (sfxAudioSource == null)
+        {
+            Debug.LogError("SFX AudioSource đã bị mất!");
+            return;
+        }
+
         sfxAudioSource.PlayOneShot(sfxclip);
     }
 }

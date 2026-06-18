@@ -31,6 +31,8 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
 
     private void Update()
     {
+        Debug.Log(CurrentActiveWeapon);
+        Debug.Log(isAttacking);
         Attack();
 
         if (CurrentActiveWeapon != null)
@@ -81,6 +83,8 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
 
     private void Attack()
     {
+        Debug.Log("Attack");
+        Debug.Log(CurrentActiveWeapon);
         if (attackButtonDown && !isAttacking)
         {
             isAttacking = true;

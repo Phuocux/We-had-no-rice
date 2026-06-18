@@ -11,10 +11,26 @@ public class EconomyManager : Singleton<EconomyManager>
 
     private void Start()
     {
+        if (PlayerAmmo.Instance != null)
+        {
+            currentGold = PlayerAmmo.Instance.savedGold;
+        }
         RefreshUI();
     }
+    protected override void Awake()
+    {
+        base.Awake();
 
+        Debug.Log(
+            $"EconomyManager Awake | ID={GetInstanceID()} | Gold={currentGold}"
+        );
+    }
     // Giữ tương thích với Pickup cũ
+    public void SetGold(int amount)
+    {
+        currentGold = amount;
+        RefreshUI();
+    }
     public void UpdateCurrentGold()
     {
         AddGold(1);

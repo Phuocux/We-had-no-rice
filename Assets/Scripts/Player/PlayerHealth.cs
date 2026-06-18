@@ -8,7 +8,7 @@ using Unity.VisualScripting;
 public class PlayerHealth : Singleton<PlayerHealth>
 {
     public bool isDead { get; private set; }
-    [SerializeField] private int maxHealth = 3;
+    [SerializeField] private int maxHealth = 10;
     [SerializeField] private float knockBackThrustAmount = 10f;
     [SerializeField] private float damageRecoveryTime = 1f;
 
@@ -60,7 +60,20 @@ public class PlayerHealth : Singleton<PlayerHealth>
             UpdateHealthSlider();
         }
     }
+    public int GetMaxHealth()
+    {
+        return maxHealth;
+    }
 
+    public void Heal(int amount)
+    {
+        currentHealth += amount;
+
+        if (currentHealth > maxHealth)
+            currentHealth = maxHealth;
+
+        UpdateHealthSlider();
+    }
 
     public void TakeDamage(int damageAmount, Transform hitTransform)
     {

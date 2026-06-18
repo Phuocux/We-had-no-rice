@@ -1,17 +1,14 @@
 using UnityEngine;
 
-public class PlayerAmmo : MonoBehaviour
+public class PlayerAmmo : Singleton<PlayerAmmo>
 {
-    public static PlayerAmmo Instance;
-
-    [Header("Ammo")]
+    [Header("Ammo Reserve")]
     public int reserveAmmo = 90;
 
-    private void Awake()
-    {
-        Instance = this;
-    }
-
+    [Header("Magazine")]
+    public int magazineAmmo = 12;
+    [Header("Economy Backup")]
+    public int savedGold = 0;
     public bool HasAmmo(int amount)
     {
         return reserveAmmo >= amount;

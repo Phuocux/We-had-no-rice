@@ -9,7 +9,7 @@ public class Gun : MonoBehaviour, IWeapon
     [SerializeField] private Transform bulletSpawnPoint;
 
     [Header("Magazine")]
-    [SerializeField] private int magazineSize = 12;
+    [SerializeField] private int magazineSize = 30;
     [SerializeField] private float reloadTime = 1.5f;
 
     private int currentMagazineAmmo;
@@ -26,12 +26,18 @@ public class Gun : MonoBehaviour, IWeapon
     {
         audioManager =
             GameObject.FindGameObjectWithTag("Audio")
-            .GetComponent<AudioManager>();
+            ?.GetComponent<AudioManager>();
 
         myAnimator = GetComponent<Animator>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
 
-        currentMagazineAmmo = magazineSize;
+        currentMagazineAmmo = PlayerAmmo.Instance.magazineAmmo;
+
+        if (currentMagazineAmmo <= 0)
+        {
+            currentMagazineAmmo = magazineSize;
+            PlayerAmmo.Instance.magazineAmmo = currentMagazineAmmo;
+        }
     }
 
     private void Update()
@@ -63,14 +69,8 @@ public class Gun : MonoBehaviour, IWeapon
         ActiveWeapon.Instance.transform.rotation =
             Quaternion.Euler(0, 0, angle);
 
-        if (mousePos.x < playerScreenPoint.x)
-        {
-            mySpriteRenderer.flipY = true;
-        }
-        else
-        {
-            mySpriteRenderer.flipY = false;
-        }
+        mySpriteRenderer.flipY =
+            mousePos.x < playerScreenPoint.x;
     }
 
     public void Attack()
@@ -86,6 +86,9 @@ public class Gun : MonoBehaviour, IWeapon
 
         currentMagazineAmmo--;
 
+        PlayerAmmo.Instance.magazineAmmo =
+            currentMagazineAmmo;
+
         if (myAnimator != null)
         {
             myAnimator.SetTrigger(FIRE_HASH);
@@ -99,9 +102,16 @@ public class Gun : MonoBehaviour, IWeapon
             );
 
         bullet.GetComponent<Projectile>()
-            .UpdateProjectileRange(weaponInfo.weaponRange);
+            .UpdateProjectileRange(
+                weaponInfo.weaponRange
+            );
 
-        audioManager.PlaySFX(audioManager.bow_AttackSFX);
+        if (audioManager != null)
+        {
+            audioManager.PlaySFX(
+                audioManager.gun_AttackSFX
+            );
+        }
 
         Debug.Log(
             $"Ammo: {currentMagazineAmmo}/{PlayerAmmo.Instance.reserveAmmo}"
@@ -139,7 +149,10 @@ public class Gun : MonoBehaviour, IWeapon
 
         currentMagazineAmmo += ammoToLoad;
 
-        PlayerAmmo.Instance.RemoveAmmo(ammoToLoad);
+        PlayerAmmo.Instance.reserveAmmo -= ammoToLoad;
+
+        PlayerAmmo.Instance.magazineAmmo =
+            currentMagazineAmmo;
 
         isReloading = false;
 
