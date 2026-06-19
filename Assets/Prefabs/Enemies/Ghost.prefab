@@ -300,7 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db5c16dd101233f4b80b680a0d931e12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  startingHealth: 3
+  startingHealth: 5
   deathVFXPrefab: {fileID: 7583050520902642220, guid: 6aaf50e527eb98f40abd34701b9c33b7, type: 3}
 --- !u!114 &8378211311977588
 MonoBehaviour:

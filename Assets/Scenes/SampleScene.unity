@@ -890,7 +890,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &167126575
 RectTransform:
   m_ObjectHideFlags: 0
@@ -907,8 +907,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: -6.4}
+  m_SizeDelta: {x: 100, y: 46.23}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &167126576
 MonoBehaviour:
@@ -923,7 +923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.0141509175, g: 0.17845894, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -25415,7 +25415,7 @@ MonoBehaviour:
   coinClip: {fileID: 8300000, guid: 38d01957d5e1fa74380f8bf6a0460a7f, type: 3}
   healthClip: {fileID: 8300000, guid: 4c86a2d7f1658ef449189879c9f0a232, type: 3}
   staminaClip: {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
-  sword_AttackSFX: {fileID: 8300000, guid: 52320e590bf774734a288886eba557ba, type: 3}
+  sword_AttackSFX: {fileID: 8300000, guid: f86489c4633557b48be14c112946fbe3, type: 3}
   bow_AttackSFX: {fileID: 8300000, guid: e85da53f5d4692946848f3813b48de6d, type: 3}
   staff_AttackSFX: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
   playerHurtSFX: {fileID: 8300000, guid: 049c0ea35a7b82d4d9694c0a68a347df, type: 3}

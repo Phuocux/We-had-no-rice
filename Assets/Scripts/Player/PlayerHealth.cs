@@ -100,14 +100,33 @@ public class PlayerHealth : Singleton<PlayerHealth>
             Debug.Log("Player Death");
             //GetComponent<Animator>().SetTrigger(DEATH_HASH);
             //StartCoroutine(DeathLoadSceneRoutine());
+            StartCoroutine(DeathLoadSceneRoutine());
         }
     }
 
     private IEnumerator DeathLoadSceneRoutine()
     {
-        yield return new WaitForSeconds(2f);
-        Destroy(gameObject);
-        SceneManager.LoadScene(TOWN_TEXT);
+        //yield return new WaitForSeconds(2f);
+        //Destroy(gameObject);
+        //SceneManager.LoadScene(TOWN_TEXT);
+        
+
+    if (PlayerAmmo.Instance != null)
+        Destroy(PlayerAmmo.Instance.gameObject);
+
+    if (EconomyManager.Instance != null)
+        Destroy(EconomyManager.Instance.gameObject);
+
+    if (SceneManagement.Instance != null)
+        Destroy(SceneManagement.Instance.gameObject);
+
+    if (Stamina.Instance != null)
+        Destroy(Stamina.Instance.gameObject);
+
+    yield return null;
+
+    SceneManager.LoadScene("menuScene");
+
     }
 
     private IEnumerator DamageRecoveryRoutine() {
